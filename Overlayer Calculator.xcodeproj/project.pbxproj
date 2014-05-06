@@ -482,6 +482,7 @@
 				4A7CBE8A1918911E007F7815 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4A7CBE8B1918911E007F7815 /* Build configuration list for PBXNativeTarget "Overlayer CalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +491,7 @@
 				4A7CBE8D1918911E007F7815 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
