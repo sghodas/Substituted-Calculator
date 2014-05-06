@@ -100,6 +100,9 @@
                                         <state key="normal" title="x^y">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="selectOperation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="NpE-UY-ooD"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNO-KP-Bf2">
                                         <rect key="frame" x="80" y="134" width="79" height="66"/>
@@ -121,6 +124,9 @@
                                         <state key="normal" title="±">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="selectNegate:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="KmN-YJ-jYp"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1OV-J3-u03">
                                         <rect key="frame" x="80" y="0.0" width="79" height="66"/>
@@ -130,6 +136,9 @@
                                         <state key="normal" title="y√x">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="selectOperation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ZJ5-44-vW1"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEu-Jf-loa">
                                         <rect key="frame" x="160" y="134" width="79" height="66"/>
@@ -151,6 +160,9 @@
                                         <state key="normal" title="÷">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="selectOperation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="XdF-id-VYI"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kwp-RQ-rQu">
                                         <rect key="frame" x="160" y="0.0" width="79" height="66"/>
@@ -160,6 +172,9 @@
                                         <state key="normal" title="log">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="selectOperation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="HWw-gA-kOh"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hG-GP-pWK">
                                         <rect key="frame" x="80" y="201" width="79" height="66"/>
@@ -217,6 +232,9 @@
                                         <state key="normal" title="=">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="evaluate:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="91W-bq-TDW"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TfG-Qd-I19">
                                         <rect key="frame" x="240" y="201" width="80" height="66"/>
@@ -226,6 +244,9 @@
                                         <state key="normal" title="+">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="selectOperation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="YUC-e2-rWz"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PP8-hB-sUM">
                                         <rect key="frame" x="240" y="134" width="80" height="66"/>
@@ -235,6 +256,9 @@
                                         <state key="normal" title="−">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="selectOperation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="u0F-27-pOf"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsD-hm-r8k">
                                         <rect key="frame" x="240" y="67" width="80" height="66"/>
@@ -244,6 +268,9 @@
                                         <state key="normal" title="×">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="selectOperation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gmb-29-4hD"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDm-8S-IL8">
                                         <rect key="frame" x="240" y="0.0" width="80" height="66"/>
@@ -253,6 +280,9 @@
                                         <state key="normal" title="ln">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="selectOperation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Fie-SU-beg"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -288,7 +318,7 @@
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
-                        <outlet property="outputLabel" destination="SfM-7p-wSC" id="vJv-4Z-7Bh"/>
+                        <outlet property="displayLabel" destination="SfM-7p-wSC" id="c1O-eC-TdA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
