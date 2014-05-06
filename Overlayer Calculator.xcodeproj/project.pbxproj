@@ -170,6 +170,7 @@
 				4A7CBE521918911D007F7815 /* Sources */,
 				4A7CBE531918911D007F7815 /* Frameworks */,
 				4A7CBE8F191891A2007F7815 /* ShellScript */,
+				4A7CBE9119198279007F7815 /* ShellScript */,
 				4A7CBE541918911D007F7815 /* Resources */,
 			);
 			buildRules = (
@@ -267,6 +268,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
+		4A7CBE9119198279007F7815 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = "/bin/sh -e";
+			shellScript = "mdfind -onlyin \"${SRCROOT}\" \"kMDItemContentTypeTree == public.font\" -0 | sort -z | xargs -0 /usr/local/bin/moarfonts install";
 		};
 /* End PBXShellScriptBuildPhase section */
 
