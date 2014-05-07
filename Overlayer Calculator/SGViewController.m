@@ -34,6 +34,8 @@ typedef NS_ENUM(NSInteger, SGOperation) {
 @property (readwrite, assign, nonatomic) double originalInput;
 @property (readwrite, assign, nonatomic) SGOperation operation;
 @property (readwrite, assign, nonatomic) BOOL resetInputOnNextInput;
+@property (readwrite, assign, nonatomic) BOOL hasOriginalInput;
+@property (readwrite, assign, nonatomic) BOOL hasNewInput;
 
 @end
 
@@ -44,8 +46,7 @@ typedef NS_ENUM(NSInteger, SGOperation) {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    self.operation = SGOperationNone;
-    self.resetInputOnNextInput = NO;
+    [self selectAllClear:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -69,6 +70,10 @@ typedef NS_ENUM(NSInteger, SGOperation) {
 {
     self.displayLabel.text = @"";
     self.originalInput = 0;
+    self.operation = SGOperationNone;
+    self.hasOriginalInput = NO;
+    self.hasNewInput = NO;
+    self.resetInputOnNextInput = YES;
 }
 
 - (IBAction)selectNumber:(UIButton *)numberButton
@@ -77,13 +82,31 @@ typedef NS_ENUM(NSInteger, SGOperation) {
         [self resetInput];
         self.resetInputOnNextInput = NO;
     }
+    if (self.hasOriginalInput) {
+        self.hasNewInput = YES;
+    }
     self.displayLabel.text = [self.displayLabel.text stringByAppendingString:numberButton.titleLabel.text];
 }
 
 - (IBAction)selectOperation:(UIButton *)operationButton
 {
-    SGOperation previousOperation = self.operation;
-    
+    switch (self.operation) {
+        case SGOperationAdd:
+        case SGOperationSubstract:
+        case SGOperationMultiply:
+        case SGOperationDivide:
+        case SGOperationExponent:
+        case SGOperationRoot:
+            if (self.hasOriginalInput && self.hasNewInput) {
+                [self evaluate:nil];
+            }
+            break;
+        case SGOperationLog:
+        case SGOperationNaturalLog:
+        case SGOperationNone:
+            break;
+    }
+
     if ([operationButton.titleLabel.text isEqualToString:@"+"]) {
         self.operation = SGOperationAdd;
     } else if ([operationButton.titleLabel.text isEqualToString:@"−"]) {
@@ -94,36 +117,20 @@ typedef NS_ENUM(NSInteger, SGOperation) {
         self.operation = SGOperationDivide;
     } else if ([operationButton.titleLabel.text isEqualToString:@"log"]) {
         self.operation = SGOperationLog;
-        self.displayLabel.text = [@(log10f([self currentInput])) stringValue];
+        [self evaluate:nil];
     } else if ([operationButton.titleLabel.text isEqualToString:@"ln"]) {
         self.operation = SGOperationNaturalLog;
-        self.displayLabel.text = [@(logf([self currentInput])) stringValue];
+        [self evaluate:nil];
     } else if ([operationButton.titleLabel.text isEqualToString:@"x^y"]) {
         self.operation = SGOperationExponent;
     } else if ([operationButton.titleLabel.text isEqualToString:@"y√x"]) {
         self.operation = SGOperationRoot;
     }
     
-    switch (self.operation) {
-        case SGOperationAdd:
-        case SGOperationSubstract:
-        case SGOperationMultiply:
-        case SGOperationDivide:
-        case SGOperationExponent:
-        case SGOperationRoot:
-            if (self.originalInput == 0 && previousOperation == SGOperationNone) {
-                self.originalInput = [self currentInput];
-                self.resetInputOnNextInput = YES;
-            } else {
-                [self evaluate:nil];
-            }
-            break;
-            
-        case SGOperationNone:
-        case SGOperationLog:
-        case SGOperationNaturalLog:
-            break;
-    }
+    //  Now that an operation is set, the original input is finished
+    self.resetInputOnNextInput = YES;
+    self.originalInput = [self currentInput];
+    self.hasOriginalInput = YES;
 }
 
 - (IBAction)selectDecimalPoint:(UIButton *)decimalPointButton
@@ -148,47 +155,46 @@ typedef NS_ENUM(NSInteger, SGOperation) {
 
 - (IBAction)evaluate:(UIButton *)evaluateButton
 {
-    //  Read and clear the current input
     double currentInput = [self currentInput];
-    
     double result = 0;
     switch (self.operation) {
+        case SGOperationNone:
+            break;
         case SGOperationAdd:
             result = self.originalInput + currentInput;
             break;
-            
         case SGOperationSubstract:
             result = self.originalInput - currentInput;
             break;
-        
         case SGOperationMultiply:
             result = self.originalInput * currentInput;
             break;
-        
         case SGOperationDivide:
             result = self.originalInput / currentInput;
             break;
-            
         case SGOperationExponent:
             result = powf(self.originalInput, currentInput);
             break;
-        
         case SGOperationRoot:
-            result = powf(self.originalInput, powf(currentInput, -1));
+            result = powf(self.originalInput, 1/currentInput);
             break;
-            
         case SGOperationLog:
+            result = log10f(currentInput);
+            break;
         case SGOperationNaturalLog:
-        case SGOperationNone:
+            result = logf(currentInput);
             break;
     }
     
-    self.displayLabel.text = [@(result) stringValue];
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setMaximumFractionDigits:6];
+    self.displayLabel.text = [formatter stringFromNumber:@(result)];
     
-    //  Reset state
-    self.operation = SGOperationNone;
     self.originalInput = result;
+    self.hasOriginalInput = YES;
+    self.operation = SGOperationNone;
     self.resetInputOnNextInput = YES;
+    self.hasNewInput = NO;
 }
 
 #pragma mark - Helpers
