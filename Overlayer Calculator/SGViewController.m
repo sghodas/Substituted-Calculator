@@ -135,6 +135,14 @@ typedef NS_ENUM(NSInteger, SGOperation) {
 
 - (IBAction)selectDecimalPoint:(UIButton *)decimalPointButton
 {
+    if (self.resetInputOnNextInput) {
+        [self resetInput];
+        self.resetInputOnNextInput = NO;
+    }
+    if (self.hasOriginalInput) {
+        self.hasNewInput = YES;
+    }
+    
     //  Only add a decimal point if there isn't one in the output already
     if ([self.displayLabel.text rangeOfString:@"."].location == NSNotFound) {
         if ([self.displayLabel.text isEqualToString:@""]) {
