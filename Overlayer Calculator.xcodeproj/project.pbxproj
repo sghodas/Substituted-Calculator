@@ -36,7 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4A7CBE561918911D007F7815 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A7CBE561918911D007F7815 /* Overlayer Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Overlayer Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A7CBE591918911D007F7815 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4A7CBE5B1918911D007F7815 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4A7CBE5D1918911D007F7815 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -96,7 +96,7 @@
 		4A7CBE571918911D007F7815 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4A7CBE561918911D007F7815 /* Calculator.app */,
+				4A7CBE561918911D007F7815 /* Overlayer Calculator.app */,
 				4A7CBE771918911D007F7815 /* Overlayer CalculatorTests.xctest */,
 			);
 			name = Products;
@@ -193,7 +193,7 @@
 			);
 			name = "Overlayer Calculator";
 			productName = "Overlayer Calculator";
-			productReference = 4A7CBE561918911D007F7815 /* Calculator.app */;
+			productReference = 4A7CBE561918911D007F7815 /* Overlayer Calculator.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4A7CBE761918911D007F7815 /* Overlayer CalculatorTests */ = {
@@ -440,6 +440,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Overlayer Calculator/Overlayer Calculator-Prefix.pch";
 				INFOPLIST_FILE = "Overlayer Calculator/Overlayer Calculator-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -450,11 +451,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Satyam Ghodasara (76333YNXLE)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Satyam Ghodasara (76333YNXLE)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: SHALEWATER SOLUTIONS, INC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SHALEWATER SOLUTIONS, INC";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Overlayer Calculator/Overlayer Calculator-Prefix.pch";
 				INFOPLIST_FILE = "Overlayer Calculator/Overlayer Calculator-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
